@@ -17,14 +17,13 @@ export async function GET(request: Request, { params }: Segments) {
     if (!todo) {
         return NextResponse.json({ message: `Todo con el id ${id} no existe` }, { status: 404 });
     }
-
-    return NextResponse.json({ status: "succes", todo });
+    return NextResponse.json({ status: "succes", todo, });
 }
 
 
 const putSchema = yup.object({
     complete: yup.boolean().optional(),
-    descripton: yup.string().optional(),
+    description: yup.string().optional(),
 })
 
 
@@ -36,7 +35,7 @@ export async function PUT(request: Request, { params }: Segments) {
         const todo = await prisma.todo.findFirst({ where: { id } });
 
         // Obtener los datos del body
-        const { complete, descripton } = await putSchema.validate(await request.json());
+        const { complete, description } = await putSchema.validate(await request.json());
 
         // Verificar si el todo existe
         if (!todo) {
@@ -46,7 +45,7 @@ export async function PUT(request: Request, { params }: Segments) {
         // Actualizar el todo
         const updateTodo = await prisma.todo.update({
             where: { id },
-            data: { complete, descripton }
+            data: { complete, description }
         })
 
         // Retornar la respuesta
