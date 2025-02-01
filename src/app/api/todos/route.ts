@@ -29,7 +29,7 @@ export async function GET(req: Request) {
 }
 
 const postSchema = yup.object({
-    descripton: yup.string().required(),
+    description: yup.string().required(),
     complete: yup.boolean().optional().default(false),
 })
 
@@ -37,10 +37,10 @@ export async function POST(request: Request) {
 
     try {
         // Obtener los datos enviados en el body
-        const { complete, descripton } = await postSchema.validate(await request.json());
+        const { complete, description } = await postSchema.validate(await request.json());
 
         // Crear un nuevo registro en la tabla todo
-        const todo = await prisma.todo.create({ data: { complete, descripton } });
+        const todo = await prisma.todo.create({ data: { complete, description } });
 
         return NextResponse.json(todo);
 
@@ -51,6 +51,20 @@ export async function POST(request: Request) {
             error,
         })
     }
+}
 
+export async function DELETE(request: Request) {
+    try {
+        // Eliminar todos los registros completados
+        await prisma.todo.deleteMany({ where: { complete: true } });
 
+        return NextResponse.json({ message: "Todos los completados han sido eliminados" });
+
+    } catch (error) {
+        return NextResponse.json({
+            message: "Error al eliminar todos los competados",
+            status: 404,
+            error,
+        })
+    }
 }
