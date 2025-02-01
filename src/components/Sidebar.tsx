@@ -18,7 +18,7 @@ const ITEMS = [
         icon : <IoCheckboxOutline/>,
     },
     {
-        path: '/dashboard/server-todo',
+        path: '/dashboard/server-todos',
         title: 'Server Actions',
         icon : <IoListOutline/>
     },

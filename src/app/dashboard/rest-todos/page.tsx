@@ -1,4 +1,5 @@
-// import { ListTodos } from "@/components";
+export const dynamic = 'force-dinamic'
+export const revalidate = 0;
 
 import { NewTodo } from "@/components";
 import prisma from "@/lib/prisma";
