@@ -21,6 +21,8 @@ export default function ProfilePage() {
                     className="rounded-full"/>
                 <span className="text-2xl font-semibold">{session?.user?.name}</span>
                 <span className="text-gray-500">{session?.user?.email}</span>
+                <span className="text-gray-500">ID :{session?.user?.id}</span>
+                <span className="text-gray-500 capitalize">{session?.user?.roles?.join(', ')}</span>
             </div>
         </div>
     );
