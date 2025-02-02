@@ -1,9 +1,11 @@
 
 
 
+
 export { NewTodo } from '../todos/components/NewTodo';
-export { SidebarItem } from "./SidebarItem";
+export { LogoutButton}  from './sidebar/LogoutButton';
+export { SidebarItem } from "./sidebar/SidebarItem";
 export { WidgetItem } from './WidgetItem';
-export { Sidebar } from './Sidebar';
+export { Sidebar } from './sidebar/Sidebar';
 export { TopMenu } from './TopMenu';
 export { TabBar } from './TabBar';
