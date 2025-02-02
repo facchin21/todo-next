@@ -1,4 +1,4 @@
-import { IoCalendarOutline, IoCheckboxOutline, IoListOutline } from 'react-icons/io5';
+import { IoCalendarOutline, IoCardOutline, IoCheckboxOutline, IoCodeWorkingOutline, IoListOutline } from 'react-icons/io5';
 import { SidebarItem } from './SidebarItem';
 import { CiLogout } from 'react-icons/ci';
 import Image from "next/image"
@@ -10,17 +10,27 @@ const ITEMS = [
     {
         path: '/dashboard',
         title: 'Dashboard',
-        icon : <IoCalendarOutline/>
+        icon: <IoCalendarOutline />
     },
     {
         path: '/dashboard/rest-todos',
-        title : 'Rest Todos',
-        icon : <IoCheckboxOutline/>,
+        title: 'Rest Todos',
+        icon: <IoCheckboxOutline />,
     },
     {
         path: '/dashboard/server-todos',
         title: 'Server Actions',
-        icon : <IoListOutline/>
+        icon: <IoListOutline />
+    },
+    {
+        path: '/dashboard/cookies',
+        title: 'Cookies',
+        icon: <IoCodeWorkingOutline />
+    },
+    {
+        path: '/dashboard/products',
+        title: 'Products',
+        icon: <IoCardOutline />
     },
 ]
 
